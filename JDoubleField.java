@@ -1,5 +1,3 @@
-package il.co.anglesCalculator;
-
 import javax.swing.*;
 import javax.swing.text.*;
 import java.util.regex.Pattern;
