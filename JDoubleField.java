@@ -8,12 +8,11 @@ class JDoubleField extends JTextField
 	{
 		private final Pattern pattern = Pattern.compile("[+-]?\\d*(\\.\\d*)?((?<=\\d\\.?)[eE][+-]?\\d*)?");
 
-//		@Override
-//		public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException
-//		{
-//			System.out.println("insertString!!!!!!!!!!!");
-//			replace(fb, offset, 0, string, attr);
-//		}
+		@Override
+		public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException
+		{
+			replace(fb, offset, 0, string, attr);
+		}
 
 		@Override
 		public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException
