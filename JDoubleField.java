@@ -2,11 +2,11 @@ import javax.swing.*;
 import javax.swing.text.*;
 import java.util.regex.Pattern;
 
-class JDoubleField extends JTextField
+public class JDoubleField extends JTextField
 {
 	private static final DocumentFilter doubleFilter = new DocumentFilter()
 	{
-		private final Pattern pattern = Pattern.compile("[+-]?\\d*(\\.\\d*)?((?<=\\d\\.?)[eE][+-]?\\d*)?");
+		private final Pattern pattern = Pattern.compile("[+-]?(NaN|Infinity|\\d*(\\.\\d*)?((?<=\\d\\.?)[eE][+-]?\\d*)?)");
 
 		@Override
 		public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException
@@ -17,10 +17,9 @@ class JDoubleField extends JTextField
 		@Override
 		public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException
 		{
-			final Document document = fb.getDocument();
-			final StringBuilder stringBuilder = new StringBuilder(document.getText(0, document.getLength()));
-			stringBuilder.replace(offset, offset + length, text);
-			if (pattern.matcher(stringBuilder).matches())
+			if (pattern.matcher(new StringBuilder(fb.getDocument().getText(0, fb.getDocument().getLength()))
+					.replace(offset, offset + length, text))
+					.matches())
 				super.replace(fb, offset, length, text, attrs);
 		}
 	};
