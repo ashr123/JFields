@@ -1,3 +1,5 @@
+package il.co.anglesCalculator;
+
 import javax.swing.*;
 import javax.swing.text.*;
 import java.util.regex.Pattern;
@@ -17,16 +19,47 @@ public class JDoubleField extends JTextField
 		@Override
 		public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException
 		{
-			if (pattern.matcher(new StringBuilder(fb.getDocument().getText(0, fb.getDocument().getLength()))
+			if (text == null || pattern.matcher(new StringBuilder(fb.getDocument().getText(0, fb.getDocument().getLength()))
 					.replace(offset, offset + length, text))
 					.matches())
 				super.replace(fb, offset, length, text, attrs);
 		}
 	};
 
+	public double getDouble()
+	{
+		try
+		{
+			return Double.parseDouble(getText());
+		} catch (NumberFormatException ignored)
+		{
+			return Double.NaN;
+		}
+	}
+
+	public void setDouble(double num)
+	{
+		setText(String.valueOf(num));
+	}
+
 	public JDoubleField()
 	{
 		this(null, null, 0);
+	}
+
+	public JDoubleField(double num)
+	{
+		this(String.valueOf(num));
+	}
+
+	public JDoubleField(double num, int columns)
+	{
+		this(String.valueOf(num), columns);
+	}
+
+	public JDoubleField(Document doc, double num, int columns)
+	{
+		this(doc, String.valueOf(num), columns);
 	}
 
 	public JDoubleField(int columns)
