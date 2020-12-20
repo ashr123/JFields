@@ -44,7 +44,7 @@ public class JDoubleField extends JTextField
 
 	public JDoubleField()
 	{
-		this(null, null, 0);
+		this(0);
 	}
 
 	public JDoubleField(double num)
@@ -64,12 +64,12 @@ public class JDoubleField extends JTextField
 
 	public JDoubleField(int columns)
 	{
-		this(null, null, columns);
+		this(null, columns);
 	}
 
 	public JDoubleField(String text)
 	{
-		this(null, text, 0);
+		this(text, 0);
 	}
 
 	public JDoubleField(String text, int columns)
