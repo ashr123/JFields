@@ -16,9 +16,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>ashr123</id>
-			<name>JDoubleTextField</name>
-			<url>https://github.com/ashr123/JDoubleTextField</url>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/ashr123/JDoubleTextField</url>
 		</repository>
 	</distributionManagement>
 
