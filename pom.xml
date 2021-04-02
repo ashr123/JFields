@@ -14,4 +14,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<distributionManagement>
+		<repository>
+			<id>ashr123</id>
+			<name>JDoubleTextField</name>
+			<url>https://github.com/ashr123/JDoubleTextField</url>
+		</repository>
+	</distributionManagement>
+
 </project>
