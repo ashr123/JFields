@@ -1,4 +1,4 @@
-package il.co.anglesCalculator;
+package il.co.fields;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -25,22 +25,7 @@ public class JDoubleField extends JTextField
 				super.replace(fb, offset, length, text, attrs);
 		}
 	};
-
-	public double getDouble()
-	{
-		try
-		{
-			return Double.parseDouble(getText());
-		} catch (NumberFormatException ignored)
-		{
-			return Double.NaN;
-		}
-	}
-
-	public void setDouble(double num)
-	{
-		setText(String.valueOf(num));
-	}
+	private double num;
 
 	public JDoubleField()
 	{
@@ -49,17 +34,18 @@ public class JDoubleField extends JTextField
 
 	public JDoubleField(double num)
 	{
-		this(String.valueOf(num));
+		this(num, 0);
 	}
 
 	public JDoubleField(double num, int columns)
 	{
-		this(String.valueOf(num), columns);
+		this(null, num, columns);
 	}
 
 	public JDoubleField(Document doc, double num, int columns)
 	{
-		this(doc, String.valueOf(num), columns);
+		this(doc, String.valueOf(num), columns, false);
+		this.num = num;
 	}
 
 	public JDoubleField(int columns)
@@ -79,9 +65,40 @@ public class JDoubleField extends JTextField
 
 	public JDoubleField(Document doc, String text, int columns)
 	{
+		this(doc, text, columns, true);
+	}
+
+	protected JDoubleField(Document doc, String text, int columns, boolean isCallToOverriddenSetText)
+	{
 		super(doc, null, columns);
 		((AbstractDocument) getDocument()).setDocumentFilter(doubleFilter);
 		if (text != null)
-			setText(text);
+			if (isCallToOverriddenSetText)
+				setText(text);
+			else
+				super.setText(text);
+	}
+
+	public double getDouble()
+	{
+		return num;
+	}
+
+	public void setDouble(double num)
+	{
+		setText(String.valueOf(this.num = num));
+	}
+
+	@Override
+	public void setText(String t)
+	{
+		try
+		{
+			num = Double.parseDouble(t);
+		} catch (NumberFormatException ignored)
+		{
+			num = Double.NaN;
+		}
+		super.setText(t);
 	}
 }
