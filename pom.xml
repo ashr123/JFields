@@ -6,7 +6,7 @@
 
 	<groupId>il.co</groupId>
 	<artifactId>j-fields</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 
 	<properties>
 		<maven.compiler.source>16</maven.compiler.source>
@@ -34,7 +34,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/ashr123/jdoubletextfield</url>
+			<url>https://maven.pkg.github.com/ashr123/jFields</url>
 		</repository>
 	</distributionManagement>
 
