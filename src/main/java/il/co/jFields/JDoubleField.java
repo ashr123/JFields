@@ -8,7 +8,7 @@ public class JDoubleField extends JTextField
 {
 	private static final DocumentFilter doubleFilter = new DocumentFilter()
 	{
-		private final Pattern pattern = Pattern.compile("[+-]?(NaN|Infinity|\\d*(\\.\\d*)?((?<=\\d\\.?)[eE][+-]?\\d*)?)");
+		private final Pattern pattern = Pattern.compile("[+-]?(" + Double.NaN + "|" + Double.POSITIVE_INFINITY + "|\\d*(\\.\\d*)?((?<=\\d\\.?)[eE][+-]?\\d*)?)");
 
 		@Override
 		public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException
