@@ -26,6 +26,16 @@ public class JDoubleField extends JTextField
 		}
 	};
 
+	public JDoubleField()
+	{
+		this(0);
+	}
+
+	public JDoubleField(int columns)
+	{
+		this(null, columns);
+	}
+
 	public JDoubleField(double num)
 	{
 		this(String.valueOf(num));
@@ -36,14 +46,19 @@ public class JDoubleField extends JTextField
 		this(String.valueOf(num), columns);
 	}
 
-	public JDoubleField()
-	{
-		this(0);
-	}
-
 	public JDoubleField(Document doc, double num, int columns)
 	{
 		this(doc, String.valueOf(num), columns);
+	}
+
+	public JDoubleField(String text)
+	{
+		this(text, 0);
+	}
+
+	public JDoubleField(String text, int columns)
+	{
+		this(null, text, columns);
 	}
 
 	public JDoubleField(Document doc, String text, int columns)
@@ -63,21 +78,6 @@ public class JDoubleField extends JTextField
 		{
 			return Double.NaN;
 		}
-	}
-
-	public JDoubleField(int columns)
-	{
-		this(null, columns);
-	}
-
-	public JDoubleField(String text)
-	{
-		this(text, 0);
-	}
-
-	public JDoubleField(String text, int columns)
-	{
-		this(null, text, columns);
 	}
 
 	public void setDouble(double num)
