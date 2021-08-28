@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>il.co.ashr</groupId>
+	<groupId>il.co.ashr123</groupId>
 	<artifactId>j-fields</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 
 	<properties>
 		<maven.compiler.source>16</maven.compiler.source>
