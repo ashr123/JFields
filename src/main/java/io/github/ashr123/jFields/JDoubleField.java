@@ -1,4 +1,4 @@
-package il.co.ashr123.jFields;
+package io.github.ashr123.jFields;
 
 import javax.swing.*;
 import javax.swing.text.*;
