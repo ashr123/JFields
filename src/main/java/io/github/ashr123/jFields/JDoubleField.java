@@ -4,6 +4,9 @@ import javax.swing.*;
 import javax.swing.text.*;
 import java.util.regex.Pattern;
 
+/**
+ * Special field that can accept only numbers (integers, decimal, scientific notation)
+ */
 public class JDoubleField extends JTextField
 {
 	private static final DocumentFilter doubleFilter = new DocumentFilter()
@@ -20,7 +23,7 @@ public class JDoubleField extends JTextField
 		public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException
 		{
 			if (text == null || pattern.matcher(new StringBuilder(fb.getDocument().getText(0, fb.getDocument().getLength()))
-					.replace(offset, offset + length, text))
+							.replace(offset, offset + length, text))
 					.matches())
 				super.replace(fb, offset, length, text, attrs);
 		}
